@@ -20,7 +20,7 @@ This guide is intended for technical writers and other content authors who want 
 
 * If you haven’t already, [install](https://github.com/google-gemini/gemini-cli) and [set up authentication](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/authentication.md) with the Gemini CLI.
 
-# Step 1: Define user personas
+## Step 1: Define user personas
 
 Using [user personas](https://www.nngroup.com/articles/persona/) is a prompting technique that lets you specify the expected output of a prompt by providing important context to a model about the intended user, such as the user’s background, goals, and needs.
 
@@ -48,11 +48,11 @@ Review the following example personas of a junior developer, a senior developer,
    * **A core task**: Tells Gemini the high-level objective, which is rewriting content for specific audiences.
    * **Instructions**: Translates the core task into a precise and repeatable procedure. Provides step-by-step rules for Gemini to follow, using the following model:
 
-        * **IF** `Audience` = `Junior Developer`, **THEN** execute Rules for Junior Developer
-        * **IF** `Audience` = `Senior Developer`, **THEN** execute Rules for Senior Developer
-        * **IF** `Audience` = `Engineering Lead`, **THEN** execute Rules for Engineering Lead
+        * **IF** `Audience` = `Junior Developer`, **THEN** execute `Rules for Junior Developer`
+        * **IF** `Audience` = `Senior Developer`, **THEN** execute `Rules for Senior Developer`
+        * **IF** `Audience` = `Engineering Lead`, **THEN** execute `Rules for Engineering Lead`
 
-   The sets of rules are written based on the implied needs of each defined user persona.
+     The sets of rules are written based on the implied needs of each defined user persona.
 
    * **Variable placeholders**: Prepares Gemini to receive input and target audience information so it can complete its task.
 
@@ -101,23 +101,23 @@ Review the following example personas of a junior developer, a senior developer,
 
 1. Copy and paste the following example input content into `example-content.txt`:
 
-```
-Our new service implements a Redis-based write-through caching strategy to reduce database latency. All read requests for user profiles first check the Redis cache. If the data is present (a cache hit), it's returned directly. If it's a cache miss, the request queries the primary PostgreSQL database, and the result is asynchronously populated back into the cache before being sent to the client. This minimizes read contention on the main DB.
-```
+   ```
+   Our new service implements a Redis-based write-through caching strategy to reduce database latency. All read requests for user profiles first check the Redis cache. If the data is present (a cache hit), it's returned directly. If it's a cache miss, the request queries the primary PostgreSQL database, and the result is asynchronously populated back into the cache before being sent to the client. This minimizes read contention on the main DB.
+   ```
 
 1. Save `example-content.txt` to your `/home` directory.
 
 1. In your terminal, run the following command from your `/home` directory to combine your files and send them to Gemini:
 
-```
-cat content-editor-template.txt | sed "s/{{AUDIENCE}}/Engineering Lead/" | sed "s|{{CONTENT}}|$(cat example-content.txt)|" | gemini gen
-```
+   ```
+   cat content-editor-template.txt | sed "s/{{AUDIENCE}}/Engineering Lead/" | sed "s|{{CONTENT}}|$(cat example-content.txt)|" | gemini gen
+   ```
 
-This command performs the following operations:
-* Reads the content-editor-template.txt file
-* Replaces the {{AUDIENCE}} placeholder with Engineering Lead
-* Replaces the {{CONTENT}} placeholder with the example-content.txt file
-* Pipes the final, complete prompt to the Gemini CLI
+   This command performs the following operations:
+   * Reads the content-editor-template.txt file
+   * Replaces the {{AUDIENCE}} placeholder with Engineering Lead
+   * Replaces the {{CONTENT}} placeholder with the example-content.txt file
+   * Pipes the final, complete prompt to the Gemini CLI
 
 The response contains the revised content. For example:
 
