@@ -101,26 +101,22 @@ Review the following example personas of a junior developer, a senior developer,
 
 1. Copy and paste the following example input content into `example-content.txt`:
 
-   ```
-   Our new service implements a Redis-based write-through caching strategy to reduce database latency. All read requests for user profiles first check the Redis cache. If the data is present (a cache hit), it's returned directly. If it's a cache miss, the request queries the primary PostgreSQL database, and the result is asynchronously populated back into the cache before being sent to the client. This minimizes read contention on the main DB.
-   ```
+   > ```Our new service implements a Redis-based write-through caching strategy to reduce database latency. All read requests for user profiles first check the Redis cache. If the data is present (a cache hit), it's returned directly. If it's a cache miss, the request queries the primary PostgreSQL database, and the result is asynchronously populated back into the cache before being sent to the client. This minimizes read contention on the main DB.```
 
 1. Save `example-content.txt` to your `/home` directory.
 
 1. In your terminal, run the following command from your `/home` directory to combine your files and send them to Gemini:
 
-   ```
-   cat content-editor-template.txt | sed "s/{{AUDIENCE}}/Engineering Lead/" | sed "s|{{CONTENT}}|$(cat example-content.txt)|" | gemini gen
-   ```
+  ```shell
+  cat content-editor-template.txt | sed "s/{{AUDIENCE}}/Engineering Lead/" | sed "s|{{CONTENT}}|$(cat example-content.txt)|" | gemini gen
+  ```
 
    This command performs the following operations:
-   * Reads the content-editor-template.txt file
-   * Replaces the {{AUDIENCE}} placeholder with Engineering Lead
-   * Replaces the {{CONTENT}} placeholder with the example-content.txt file
+   * Reads the `content-editor-template.txt` file
+   * Replaces the `{{AUDIENCE}}` placeholder with Engineering Lead
+   * Replaces the `{{CONTENT}}` placeholder with the `example-content.txt` file
    * Pipes the final, complete prompt to the Gemini CLI
 
 The response contains the revised content. For example:
 
-```
-We've implemented a Redis-based caching layer to significantly improve read performance and reduce load on our primary database. This enhancement increases our system's scalability and responsiveness, directly improving user experience while helping manage our total cost of ownership (TCO) by deferring the need for more expensive database scaling solutions. The required team skill set is minimal, aligning with our goal of building resilient and cost-effective systems.
-```
+> ```We've implemented a Redis-based caching layer to significantly improve read performance and reduce load on our primary database. This enhancement increases our system's scalability and responsiveness, directly improving user experience while helping manage our total cost of ownership (TCO) by deferring the need for more expensive database scaling solutions. The required team skill set is minimal, aligning with our goal of building resilient and cost-effective systems.```
