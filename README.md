@@ -1,18 +1,18 @@
 # Create an audience-aware technical content editor with Gemini
 
-Keeping the target audience in mind is crucial for creating effective and usable technical documentation. This guide describes how to create an audience-aware content editor that adapts technical content to different user groups, so you can make your developer documentation more user focused, engaging, and helpful.
+Keeping the target audience in mind is crucial for creating effective and usable technical documentation. This README describes how to create an audience-aware content editor that adapts technical content to different user groups, so you can make your developer documentation more user focused, engaging, and helpful.
 
-In this guide, you’ll build a content editor by:
+You’ll build a content editor by:
 
 * Clearly defining user personas
 * Writing an effective prompt
 * Running the prompt by using the Gemini command line interface (CLI)
 
-This guide is intended for technical writers and other content authors who want to improve the usability of their content. All the steps in this guide include sample code or content that you can use to complete the step.
+All the steps in this README include sample code or content that you can use to complete the step.
 
 ## Before you begin
 
-* This guide assumes that you’re familiar with using CLI tools and writing prompts for Large Language Models (LLMs). If not, review the following resources before using this guide:
+* This content assumes that you’re familiar with using CLI tools and writing prompts for Large Language Models (LLMs). If not, review the following resources before using this README:
 
     * [What are LLMs?](https://www.ibm.com/think/topics/large-language-models)
     * [Introduction to prompting](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/introduction-prompt-design)
